@@ -1,0 +1,50 @@
+.sidebar{
+    border: 2px solid black;
+    min-width: 280px;
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aside{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #7878e0;
+    padding: 8px 6px;
+}
+
+li{
+    display: flex;
+    gap: 12px;
+    padding: 10px;
+}
+
+li:hover{
+    border: 1px transparent;
+    border-radius: 10px;
+    background-color: #cacafc;
+    cursor: pointer;
+    transition: ease-in-out;
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.bottomsidebar{
+    margin-top: auto;
+}
+
+.footerlogo{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
