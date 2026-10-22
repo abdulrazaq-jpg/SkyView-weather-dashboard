@@ -1,5 +1,4 @@
 .sidebar{
-    border: 2px solid black;
     min-width: 280px;
     width: 20%;
     height: 100vh;
@@ -8,24 +7,24 @@
     gap: 1rem;
 }
 
-.aside{
+.sidebar-header{
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: #7878e0;
+    background-color: #0f172a;
     padding: 8px 6px;
 }
 
-li{
+.sidebar-items{
     display: flex;
     gap: 12px;
     padding: 10px;
 }
 
-li:hover{
+.sidebar-items:hover{
     border: 1px transparent;
     border-radius: 10px;
-    background-color: #cacafc;
+    background-color: #232f52;
     cursor: pointer;
     transition: ease-in-out;
 }
@@ -38,7 +37,7 @@ li:hover{
     padding-left: 10px;
 }
 
-.bottomsidebar{
+.sidebar-footer{
     margin-top: auto;
 }
 

@@ -1,115 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sky-View</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
+
 <body>
+
+    <!-- SideBar -->
     <aside class="sidebar">
-        <header class="aside">
+
+        <!-- SideBar Header -->
+        <header class="sidebar-header">
             <img src="assets/logo.jpg" alt="logo" class="logo">
             <h2 class="sidebarheading">SkyView</h2>
         </header>
-        <nav class="navbar">
+
+        <!-- SideBar Main -->
+        <nav class="sidebar-main">
             <ul class="items">
-                <li>
+                <li class="sidebar-items">
                     <img src="assets/home.png" alt="Home" class="logo1">
                     <h3>Home</h3>
                 </li>
-                <li>
+                <li class="sidebar-items">
                     <img src="assets/search.png" alt="Search" class="logo1">
                     <h3>Search</h3>
                 </li>
-                <li>
+                <li class="sidebar-items">
                     <img src="assets/map.png" alt="Map" class="logo1">
                     <h3>Map</h3>
                 </li>
-                <li>
+                <li class="sidebar-items">
                     <img src="assets/favorites.png" alt="Favorites" class="logo1">
                     <h3>Favorites</h3>
                 </li>
-                <li>
+                <li class="sidebar-items">
                     <img src="assets/settings.png" alt="Settings" class="logo1">
                     <h3>Settings</h3>
                 </li>
             </ul>
         </nav>
-        <footer class="bottomsidebar">
+
+        <!-- SideBar Footer -->
+        <footer class="sidebar-footer">
             <img src="assets/logo.jpg" alt="FooterImage" class="footerlogo">
         </footer>
     </aside>
+
+    <!-- Main Dashboard -->
     <main class="workSpace">
+
+        <!-- Dashboard Header -->
         <header class="workSpaceheader">
             <div class="leftside">
                 <input type="text" placeholder="Search the Location" class="searchBar">
             </div>
             <div class="rightside">
-                <img src="" alt="location" class="logo2">
-                <img src="" alt="theme" class="logo2">
-                <img src="" alt="profile" class="logo1">
+                <img src="assets/search.png" alt="location" class="logo2">
+                <img src="assets/search.png" alt="theme" class="logo2">
+                <img src="assets/logo.jpg" alt="profile" class="logo">
             </div>
         </header>
-        <section class="sec1">
-            <div class="box1">
 
-            </div>
-            <div class="box2">
+        <!-- Dashboard Main -->
+        <div class="dashboard-content">
+            <!-- Row 1: Current Weather & Conditions -->
+            <section class="dashboard-row" id="row-current-weather">
+                <div class="hero-weather-card">
+                    <div class="hero-header">
+                        <div class="hero-header-left">
+                            <div class="hero-location-group">
+                                <img src="assets/map.png" alt="Location Map Icon" width="20" height="20"
+                                    class="location-icon">
+                                <span class="location-name">Location</span>
+                            </div>
+                            <div class="hero-datetime">DAY.DATE.TIME</div>
+                        </div>
+                        <div class="hero-header-right">
+                            <div class="hero-header-extra">Right Side</div>
+                        </div>
+                    </div>
+                    <div class="hero-main-display">
+                        <img src="assets/logo.jpg" alt="Weather Condition Icon" width="100" height="100"
+                            class="weather-main-icon">
+                        <p class="hero-temp">26°C</p>
+                    </div>
+                    <div class="hero-condition-label">About Temp</div>
+                    <div class="hero-sub-text">ASad.asda.asda</div>
+                </div>
 
-            </div>
-        </section>
-        <section class="sec2">
-            <div class="box1">
+                <div class="current-conditions-panel">
+                    <h3>Current Conditions</h3>
+                    <ul class="conditions-list">
+                        <li class="condition-item">
+                            <img src="assets/map.png" alt="Temperature Icon" width="20" height="20">
+                            <p>Temperature</p>
+                            <p id="temp-value">TEMP</p>
+                        </li>
+                        <li class="condition-item">
+                            <img src="assets/map.png" alt="Feels Like Icon" width="20" height="20">
+                            <p>Feels Like</p>
+                            <p id="feels-like-value">TEMP</p>
+                        </li>
+                        <li class="condition-item">
+                            <img src="assets/map.png" alt="Humidity Icon" width="20" height="20">
+                            <p>Humidity</p>
+                            <p id="humidity-value">TEMP</p>
+                        </li>
+                        <li class="condition-item">
+                            <img src="assets/map.png" alt="Wind Speed Icon" width="20" height="20">
+                            <p>Wind Speed</p>
+                            <p id="wind-speed-value">TEMP</p>
+                        </li>
+                        <li class="condition-item">
+                            <img src="assets/map.png" alt="Wind Direction Icon" width="20" height="20">
+                            <p>Wind Direction</p>
+                            <p id="wind-direction-value">TEMP</p>
+                        </li>
+                        <li class="condition-item">
+                            <img src="assets/map.png" alt="Pressure Icon" width="20" height="20">
+                            <p>Pressure</p>
+                            <p id="pressure-value">TEMP</p>
+                        </li>
+                        <li class="condition-item">
+                            <img src="assets/map.png" alt="Visibility Icon" width="20" height="20">
+                            <p>Visibility</p>
+                            <p id="visibility-value">TEMP</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-            </div>
-            <div class="box2">
+            <!-- Row 2: Hourly Forecast & Weather Map -->
+            <section class="dashboard-row" id="row-hourly-map">
+                <div class="hourly-forecast-card">
+                    <!-- Hourly content goes here -->
+                </div>
+                <div class="weather-map-card">
+                    <!-- Map content goes here -->
+                </div>
+            </section>
 
-            </div>
-        </section>
-        <section class="sec3">
-            <div class="box1">
-                <h4>7 day forecast</h4>
-                <div class="days">
-                    <h5 class="dayname">
-                        Mon
-                    </h5>
+            <!-- Row 3: 7-Day Forecast & Recent Searches -->
+            <section class="dashboard-row" id="row-daily-map">
+                <div class="daily-forecast-card">
+                    <!-- Daily content goes here -->
                 </div>
-                <div class="days">
-                    <h5 class="dayname">
-                        Tue
-                    </h5>
+                <div class="recent-searches-card">
+                    <!-- Recent searches content goes here -->
                 </div>
-                <div class="days">
-                    <h5 class="dayname">
-                        Wed
-                    </h5>
-                </div>
-                <div class="days">
-                    <h5 class="dayname">
-                        Thu
-                    </h5>
-                </div>
-                <div class="days">
-                    <h5 class="dayname">
-                        Fri
-                    </h5>
-                </div>
-                <div class="days">
-                    <h5 class="dayname">
-                        Sat
-                    </h5>
-                </div>
-                <div class="days">
-                    <h5 class="dayname">
-                        Sun
-                    </h5>
-                </div>
-            </div>
-            <div class="box2">
-
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 </body>
+
 </html>
