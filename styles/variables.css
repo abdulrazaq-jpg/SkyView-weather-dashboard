@@ -1,0 +1,15 @@
+:root {
+  /* Colors */
+  --bg-main: #0b132b;
+  --bg-sidebar: #0f172a;
+  --bg-card: #1c2541;
+  --bg-card-hover: #232f52;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --border-color: #1e293b;
+
+  /* Spacing & Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --transition-smooth: background-color 0.2s ease-in-out;
+}
