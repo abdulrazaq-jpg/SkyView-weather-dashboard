@@ -41,7 +41,7 @@ fetch(weatherUrl)
             hourlyHTML +=
             `
                 <div class="hourly-data">
-                    <p class="time">${stdtime} ${ampm}</p>
+                    <p class="time">${stdtime}${ampm}</p>
                     <img src="assets/logo.jpg" alt="Weather Icon" width="30" height="30">
                     <p class="hourly-temp">${temp}°C</p>
                     <p class="hourly-wind-speed">${windSpeed} km/h</p>
