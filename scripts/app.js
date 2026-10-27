@@ -1,6 +1,8 @@
 const weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=15.3647&longitude=75.1240&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m,wind_direction_10m,pressure_msl&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,precipitation,weather_code,wind_speed_10m,wind_direction_10m,visibility&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset,uv_index_max&timezone=Asia%2FKolkata&forecast_days=7";
 const quotesUrl = "https://dummyjson.com/quotes"
 
+let heroSubtext = document.querySelector('.hero-sub-text');
+
 let heroTemp = document.querySelector('.hero-temp');
 let tempValue = document.querySelector('#temp-value');
 let feelsLikeValue = document.querySelector('#feels-like-value');
@@ -15,6 +17,8 @@ let hourlyCard = document.querySelector('.hourly-forecast-card');
 fetch(weatherUrl)
     .then(response => response.json())
     .then(function (data) {
+        heroSubtext.innerHTML = `Feels like ${data.current.apparent_temperature}°C . Humidity ${data.current.relative_humidity_2m}% . Wind ${data.current.wind_speed_10m} km/h`;
+
         heroTemp.innerHTML = `${data.current.temperature_2m}°C`;
 
         tempValue.innerHTML = `${data.current.temperature_2m}°C`;
@@ -51,6 +55,8 @@ fetch(weatherUrl)
 
         hourlyHTML += '</div>';
         hourlyCard.innerHTML = hourlyHTML;
+
+
     })
     .catch(error => {
         console.error('Error fetching weather data:', error);
