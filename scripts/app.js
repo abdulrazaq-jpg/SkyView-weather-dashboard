@@ -1,6 +1,8 @@
 const weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=15.3647&longitude=75.1240&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m,wind_direction_10m,pressure_msl&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,precipitation,weather_code,wind_speed_10m,wind_direction_10m,visibility&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset,uv_index_max&timezone=Asia%2FKolkata&forecast_days=7";
 const quotesUrl = "https://dummyjson.com/quotes"
 
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 let heroSubtext = document.querySelector('.hero-sub-text');
 
 let heroTemp = document.querySelector('.hero-temp');
@@ -13,6 +15,8 @@ let pressureValue = document.querySelector('#pressure-value');
 let visibilityValue = document.querySelector('#visibility-value');
 
 let hourlyCard = document.querySelector('.hourly-forecast-card');
+
+let dailyCard = document.querySelector('.daily-forecast-card');
 
 fetch(weatherUrl)
     .then(response => response.json())
@@ -56,7 +60,28 @@ fetch(weatherUrl)
         hourlyHTML += '</div>';
         hourlyCard.innerHTML = hourlyHTML;
 
-
+        let dailyHTML = '<div class = "daily-forecast-card-content">';
+        for(i=0; i<7;i++)
+        {
+            let max = data.daily.temperature_2m_max[i];
+            let min = data.daily.temperature_2m_min[i];
+            let dateObj = new Date(data.daily.time[i]);
+            let day = dateObj.toLocaleDateString('en-US', {weekday : 'short'});
+            let date = data.daily.time[i].split('-')[2];
+            let month = months[data.daily.time[i].split('-')[1] - 1];
+            
+            dailyHTML +=
+            `
+                <div class = "daily-data">
+                    <p class = "day">${day}</p>
+                    <p class = "date">${date} ${month}</p>
+                    <img src="assets/logo.jpg" alt="Weather Icon" width="30" height="30">
+                    <p class = "min-max">${min}/${max}</p>
+                </div>
+            `
+        }
+        dailyHTML += '</div>';
+        dailyCard.innerHTML = dailyHTML;
     })
     .catch(error => {
         console.error('Error fetching weather data:', error);
@@ -74,5 +99,5 @@ fetch(quotesUrl)
     });
 
 
-// fetch(weatherUrl).then(response => response.json()).then(data => console.log(data));
+//fetch(weatherUrl).then(response => response.json()).then(data => console.log(data));
 //fetch(quotesUrl).then(response => response.json()).then(data => console.log(data));
