@@ -63,7 +63,7 @@ fetch(weatherUrl)
     .then(response => response.json())
     .then(function (data) {
 
-        // <------- HERO BOX CONTENT -------->
+        // <------- HERO CARD CONTENT -------->
 
         heroSubtext.innerHTML = `Feels like ${data.current.apparent_temperature}°C . Humidity ${data.current.relative_humidity_2m}% . Wind ${data.current.wind_speed_10m} km/h`;
         heroTemp.innerHTML = `${data.current.temperature_2m}°C`;
@@ -92,12 +92,14 @@ fetch(weatherUrl)
             let timenum = Number(timestr);
             let ampm = (timenum >= 12) ? 'PM' : 'AM';
             let stdtime = timenum % 12 || 12;
+            let hourlyCode = data.hourly.weather_code[i];
+            let hourlyIcon = weatherIcons[hourlyCode] || weatherIcons[0];
 
             hourlyHTML +=
             `
                 <div class="hourly-data">
                     <p class="time">${stdtime}${ampm}</p>
-                    <img src="assets/logo.jpg" alt="Weather Icon" width="30" height="30">
+                    ${hourlyIcon}
                     <p class="hourly-temp">${temp}°C</p>
                     <p class="hourly-wind-speed">${windSpeed} km/h</p>
                 </div>
