@@ -1,15 +1,20 @@
-:root {
-  /* Colors */
-  --bg-main: #0b132b;
-  --bg-sidebar: #0f172a;
-  --bg-card: #1c2541;
-  --bg-card-hover: #232f52;
-  --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --border-color: #1e293b;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-  /* Spacing & Radii */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --transition-smooth: background-color 0.2s ease-in-out;
+:root {
+    /* Colors */
+    --bg-main: #0A0F1E;
+    --bg-sidebar: #10182A;
+    --bg-card: #182338;
+    --bg-card-hover: #22314A;
+    --text-primary: #F1F5F9;
+    --text-secondary: #9CAFC7;
+    --border-color: #29364D;
+
+    /* Font family*/
+    font-family: 'Inter', sans-serif;
+
+    /* Spacing & Radii */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --transition-smooth: background-color 0.2s ease-in-out;
 }
