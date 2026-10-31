@@ -128,6 +128,13 @@ const weatherIcons = {
     99: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="${iconColors[99]}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"/><polyline points="13 11 9 17 15 17 11 23"/></svg>`
 };
 
+const regionalCities = [
+    { name: "Hubballi", lat: 15.3647, lon: 75.1240 },
+    { name: "Bengaluru", lat: 12.9719, lon: 77.5937 },
+    { name: "Panaji", lat: 15.4909, lon: 73.8278 },
+    { name: "Mangaluru", lat: 12.9172, lon: 74.8560 }
+];
+
 let heroSubtext = document.querySelector('.hero-sub-text');
 let heromaindisplay = document.querySelector('.hero-main-display');
 let tempValue = document.querySelector('#temp-value');
@@ -253,6 +260,39 @@ fetch(quotesUrl)
         console.error('No quote found', error);
     });
 
-
 //fetch(weatherUrl).then(response => response.json()).then(data => console.log(data));
 //fetch(quotesUrl).then(response => response.json()).then(data => console.log(data));
+
+let weatherMap = document.querySelector(".weather-map-card");
+
+const mapRequests = regionalCities.map(city => {
+    let fetchUrl = `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current=temperature_2m,weather_code`;
+
+    return fetch(fetchUrl)
+        .then(response => response.json())
+        .then(data => ({ name: city.name, lat: city.lat, lon: city.lon, data }));
+});
+
+Promise.all(mapRequests)
+.then(results => {
+    let mapHTML = `<div class="map-container">`;
+    
+    for(let i = 0; i < 4; i++){
+        let result = results[i];
+        let code = result.data.current.weather_code;
+
+        mapHTML += `
+            <div class="city" id = "${result.name}">
+                <p class="city-name">${result.name}</p>
+                ${weatherIcons[code]}
+                <p class="city-temp">${result.data.current.temperature_2m}°C</p>
+            </div>
+        `;
+    }
+    
+    mapHTML += `</div>`;
+    weatherMap.innerHTML = mapHTML;
+})
+.catch(error => {
+    console.error("Error rendering regional map:", error);
+});

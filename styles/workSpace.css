@@ -3,6 +3,7 @@
     flex-direction: column;
     flex: 1;
     background-color: var(--bg-main);
+    min-width : 0;
 }
 
 .workSpaceheader{
@@ -41,13 +42,28 @@
     flex-direction: column;
     gap: 24px;
     padding: 24px;
+    min-width : 0;
 }
 
 .dashboard-row {
     display: grid;
-    grid-template-columns: 2.3fr 1fr;
+    grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr);
     gap: 24px;
     width: 100%;
+}
+
+.dashboard-row-2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+.forecast{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width : 0;
 }
 
 .hero-weather-card{
@@ -103,7 +119,7 @@
     gap: 8px;
 }
 
-.current-conditions-panel,.weather-map-card{
+.current-conditions-panel{
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -137,19 +153,20 @@
     scrollbar-width: none;
 }
 
-.hourly-forecast-card,.daily-forecast-card{
+.hourly-forecast-card,.daily-forecast-card,.weather-map-card{
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.hourly-forecast-card-heading,.daily-forecast-card-heading{
+.hourly-forecast-card-heading,.daily-forecast-card-heading,.weather-map-card-heading{
     padding-left: 5px;
 }
 
 .hourly-forecast-card-content,.daily-forecast-card-content{
     display: flex;
-    gap: 30px;
+    justify-content: space-evenly;
+    gap: 30px; 
     margin: 0 15px;
     overflow-x: auto;
     scrollbar-width: none;
@@ -158,10 +175,73 @@
 .hourly-data,.daily-data{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
 }
 
 .hourly-data:not(:last-child),.daily-data:not(:last-child){
     border-right: 1px solid rgb(176, 176, 176); 
     padding-right: 20px;
+}
+
+/* 1. Main Map Card Container */
+.weather-map {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--bg-card);
+    background-image: url("../assets/map.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    position: relative;
+    overflow: hidden; 
+}
+
+.city {
+    position: absolute;
+
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+    border-radius: 12px;
+    padding: 8px 12px;
+    text-align: center;
+    color: #ffffff;
+    min-width: 90px;
+    
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.city:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: scale(1.05);
+}
+
+#Hubballi {
+    top: 159px;
+    left: 238px;
+}
+
+#Bengaluru {
+    top: 363px;
+    left: 320px;
+}
+
+#Panaji {
+    top: 286px;
+    left: 114px;
+}
+
+#Mangaluru {
+    top: 337px;
+    left: 222px;
 }

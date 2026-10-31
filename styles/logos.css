@@ -5,7 +5,7 @@
     object-fit: cover;
 }
 
-.logo1,.logo2{
+.logo1,.logo2,.city-icon{
     width: 20px;
     height: 20px;
 }
